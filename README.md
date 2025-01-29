@@ -1,13 +1,15 @@
-# rime-prelude
+# Jawi untuk RIME
 
-配方： ℞ **prelude**
+**Saya baru nak mula buat benda ni. Maka memang belum siap. Harap maklum dan terima kasih sebab sabar**
 
-[Rime](https://rime.im) 輸入法基礎配置
+Pertamanya korang kena dapat RIME dulu. Sebab ini memang perlu RIME untuk jalan.
 
-提供 `default.yaml` 及常用 Rime 組件的默認配置
+Jom dapatkan RIME kat sini:
+- [Rime](https://rime.im)
 
 ## 安裝
 
 [東風破](https://github.com/rime/plum) 安裝口令： `bash rime-install prelude`
 
-授權條款：見 [LICENSE](LICENSE)
+Baca pasal hak-hak cipta dan benda-benda lain kat sini:
+- [LICENSE](LICENSE)
