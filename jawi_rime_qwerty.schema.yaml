@@ -5,7 +5,7 @@
 schema:
   schema_id: jawi_rime_qwerty
   name: توليسن جاوي (RIME QWERTY)
-  version: "WIP"
+  version: "0.1"
   author:
     - u/Stonespeech
     - Berdasarkan Skema oleh Xavier Nègre <https://www.lexilogos.com> dan Mishiro Shinohara <mishiro@sisu1949.onmicrosoft.com>
