@@ -1,0 +1,90 @@
+# Rime schema: Tulisan Jawi RIME QWERTY
+# encoding: utf-8
+# Berdasarkan Skema oleh Xavier Nègre <https://www.lexilogos.com> dan Mishiro Shinohara <mishiro@sisu1949.onmicrosoft.com>
+
+---
+name: jawi_rime_qwerty
+version: 'WIP'
+sort: original
+...
+
+# Variations
+ث	t\
+ة	h\
+خ	H\
+ذ	d\
+ڎ	d\\
+ڎ	c\
+ز	r\
+ش	s\
+ض	S\
+ظ	T\
+غ	g\
+ڠ	g\\
+ڠ	غ\
+ݢ	k\
+ڽ	n\
+ٚ	v\
+ّ	w\
+ْ	o\
+َ	a\
+ِ	i\
+ُ	u\
+ً	A\
+ٍ	I\
+ٌ	U\
+
+# Basic
+ق	q
+و	w
+ى	e
+ر	r
+ت	t
+ي	y
+و	u
+ي	i
+و	o
+ڤ	p
+ا	a
+س	s
+د	d
+ف	f
+ع	g
+ه	h
+ج	j
+ک	k
+ل	l
+ز	z
+خ	x
+چ	c
+ۏ	v
+ب	b
+ن	n
+م	m
+إ	E
+ط	T
+إ	I
+أ	A
+ص	S
+ض	D
+ح	H
+خ	K
+ظ	Z
+ڠ	N
+
+# Punctuation
+
+&	٢
+)	(
+(	)
+⁏	;
+<	>
+>	<
+]	[
+[	]
+/	/
+~	~
+}	{
+{	}
+⹁	,
+.	.
