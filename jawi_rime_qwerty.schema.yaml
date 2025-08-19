@@ -1,0 +1,117 @@
+# Rime schema: Tulisan Jawi RIME QWERTY
+# encoding: utf-8
+# Berdasarkan Skema oleh Xavier Nègre <https://www.lexilogos.com> dan Mishiro Shinohara <mishiro@sisu1949.onmicrosoft.com>
+
+schema:
+  schema_id: jawi_rime_qwerty
+  name: توليسن جاوي (RIME QWERTY)
+  version: "WIP"
+  author:
+    - u/Stonespeech
+    - Berdasarkan Skema oleh Xavier Nègre <https://www.lexilogos.com> dan Mishiro Shinohara <mishiro@sisu1949.onmicrosoft.com>
+  description: |
+    Menaip tulisan Jawi melalui RIME secara fonetik seperti di Lexilogos.
+    منوليس توليسن جاوي ملالوءي RIME سچارا فونيتيک سڤرتي د Lexilogos.
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ جاوي, Rumi ]
+
+engine:                    # 輸入引擎設定，即掛接組件的「處方」
+  processors:              # 一、這批組件處理各類按鍵消息
+    - ascii_composer       # ※ 處理西文模式及中西文切換 - recognizer           # ※ 與 matcher 搭配，處理符合特定規則的輸入碼，如網址、反查等
+    - key_binder           # ※ 在特定條件下將按鍵綁定到其他按鍵，如重定義逗號、句號爲候選翻頁鍵
+    - speller              # ※ 拼寫處理器，接受字符按鍵，編輯輸入碼
+    - punctuator           # ※ 句讀處理器，將單個字符按鍵直接映射爲文字符號
+    - navigator            # ※ 處理輸入欄內的光標移動鍵
+    - express_editor       # ※ 編輯器，處理空格、回車上屏、回退鍵等
+  segmentors:              # 二、這批組件識別不同內容類型，將輸入碼分段
+    - ascii_segmentor      # ※ 標識西文段落 - matcher              # ※ 標識符合特定規則的段落，如網址、反查等
+    - abc_segmentor        # ※ 標識常規的文字段落
+    - punct_segmentor      # ※ 標識句讀段落
+    - fallback_segmentor   # ※ 標識其他未標識段落
+  translators:             # 三、這批組件翻譯特定類型的編碼段爲一組候選文字
+    - punct_translator     # ※ 轉換標點符號 - echo_translator      # ※ 沒有其他候選字時，回顯輸入碼
+    - script_translator    # ※ 腳本翻譯器，用於拼音等基於音節表的輸入方案 - reverse_lookup_translator  # ※ 反查翻譯器，用另一種編碼方案查碼
+
+speller:
+  alphabet: "!\"#$%&'()*+,-./123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+  initials: "',./abcdefghijklmnopqrstuvwxyz;[]ABEGHJNQRSTWXY`~"
+  autoselect: false
+
+translator:
+  dictionary: jawi_rime_qwerty
+  enable_sentence: false
+  enable_user_dict: false
+  preedit_format:
+    # Mapping begins
+
+    # Variations
+    - xform|t\\|ث|
+    - xform|h\\|ة|
+    - xform|H\\|خ|
+    - xform|d\\|ذ|
+    - xform|d\\\\|ڎ|
+    - xform|c\\|ڎ|
+    - xform|r\\|ز|
+    - xform|s\\|ش|
+    - xform|S\\|ض|
+    - xform|T\\|ظ|
+    - xform|g\\|غ|
+    - xform|g\\\\|ڠ|
+    - xform|غ\\|ڠ|
+    - xform|k\\|ݢ|
+    - xform|n\\|ڽ|
+    - xform|v\\|ٚ|
+    - xform|w\\|ّ|
+    - xform|o\\|ْ|
+    - xform|a\\|َ|
+    - xform|i\\|ِ|
+    - xform|u\\|ُ|
+    - xform|A\\|ً|
+    - xform|I\\|ٍ|
+    - xform|U\\|ٌ|
+
+    # Basic
+    - xlit|qwertyuiopasdfghjklzxcvbnmETIASDHKZN|قوىرتيويوڤاسدفعهجکلزخچۏبنمإطإأصضحخظڠ|
+    - xlit|123456789|123456789|
+
+    # Trim white spaces
+    - xform| ||
+  comment_format:
+    - xform|^~||
+
+punctuator:
+  use_space: true
+  half_shape:
+    ' ' : { commit: ' ' }
+
+    # Modified
+    "&" : "٢"
+    "(" : ")"
+    ")" : "("
+    ";" : "⁏"
+    ">" : "<"
+    "<" : ">"
+    "[" : "]"
+    "]" : "["
+    "/" : "/"
+    "~" : "~"
+    "{" : "}"
+    "}" : "{"
+    "," : "⹁"
+    "." : "."
+    "?" : "؟"
+
+style:
+  font_face: "Noto Naskh Arabic, Scheherazade New"
+
+key_binder:
+  # import_preset: default
+  bindings:
+    - {accept: "Return", send: "Shift+Return", when: has_menu}
+
+menu:
+  alternative_select_keys: "0"
+  page_size: 1
